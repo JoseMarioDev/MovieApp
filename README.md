@@ -17,3 +17,12 @@
 - Image lazy loading
 - Dockerize app
 - setup monitoring using Sentry
+
+### Github workflow
+
+- developer works locally in feature branch
+- working with three environments: development, staging, production. Each environment will have it's own S3 bucket
+- once feature is complete, dev merges into dev branch (dev environment)
+- once feature is working as required, merge dev branch -> staging branch (staging environment)
+- can merge from staging -> master branch (prod environment)
+  ![GH flow](src/img/github-flow.png)
