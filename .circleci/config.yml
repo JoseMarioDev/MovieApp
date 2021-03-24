@@ -27,3 +27,40 @@ jobs:
           paths:
             - node_modules
           key: app-{{checksum "package.json"}}
+  # job to install aws cli, run build, deploy to s3 bucket
+  deploy-to-aws-s3:
+    docker:
+      - image: circleci/node:13.12.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Show current branch
+          command: echo ${CURRENT_BRANCH}
+      - run:
+          name: Installing AWS CLI
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get -y awscli
+            sudo apt-get install -y python-pip python-dev build-essential
+      - run:
+          name: Build Project
+          command: |
+            npm install
+            npm run build
+            cd build
+            zip ../build.zip -r * .[^.]*
+            echo "Build Successful!"
+      - run:
+          name: Deploy to AWS S3
+          command: |
+            if ["${CURRENT_BRANCH}" == "master"]
+            then
+              aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_BUCKET_PRODUCTION} --delete
+            elif ["${CURRENT_BRANCH}" == "staging"]
+            then
+              aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_BUCKET_STAGING} --delete
+            else 
+              aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_BUCKET_DEV} --delete
+            fi
