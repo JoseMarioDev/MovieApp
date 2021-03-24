@@ -2,7 +2,7 @@
 
 ### App Architecture
 
-![app architecture](img/app-arch.png)
+![app architecture](src/img/app-arch.png)
 
 ### App Features
 
