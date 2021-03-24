@@ -59,6 +59,7 @@ jobs:
       - *restore-cache
       - *install-dependencies
       - *save-cache
+  # run linter job
   linting:
     executor: app-executor
     steps:
@@ -68,6 +69,16 @@ jobs:
       - run:
           name: run linting
           command: npm run lint
+  # prettier job to check formatting
+  prettier:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show-current-branch-name
+      - *restore-cache
+      - run:
+          name: run prettier check
+          command: npm run prettier:check
   # job to install aws cli, run build, deploy to s3 bucket
   deploy-to-aws-s3:
     executor: app-executor
@@ -123,9 +134,18 @@ workflows:
                 - development
                 - staging
                 - master
+      - prettier:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - development
+                - staging
+                - master
       - deploy-to-aws-s3:
           requires:
-            - linting
+            - prettier
           filters:
             branches:
               only:
