@@ -136,7 +136,7 @@ jobs:
       - run: echo "Slack Notification"
       - slack/notify:
           event: 'always'
-          channel: 'movieapp-circleci'
+          channel: 'circleci-notifications'
           template: ''
           custom: |
             {
