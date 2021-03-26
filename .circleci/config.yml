@@ -327,10 +327,10 @@ workflows:
                 - master
       - hold:
           type: approval
-          requires: 
+          requires:
             - deploy-to-aws-cloudfront
       - terraform-destroy:
-           requires:
+          requires:
             - hold
           filters:
             branches:
