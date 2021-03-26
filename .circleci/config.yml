@@ -136,7 +136,7 @@ jobs:
             cd artifacts/infrastructure/
             terraform workspace select ${CIRCLE_BRANCH} 
             terraform apply --auto-approve
-            terraform output movieapp_bucket_name" > ../movieapp_bucket_name.txt
+            terraform output movieapp_bucket_name > ../movieapp_bucket_name.txt
             terraform output cloudfront_distribution_id > ../cloudfront_distribution_id.txt
       - persist_to_workspace:
           root: ./
