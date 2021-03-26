@@ -258,12 +258,12 @@ jobs:
       - checkout
       - *show-current-branch-name
       - run:
-        name: Terraform destroy
-        command: |
-          cd infrastructure/
-          terraform init
-          terraform workspace select ${CIRCLE_BRANCH} || terraform workspace new ${CIRCLE_BRANCH}
-          terraform destroy --auto-approve
+          name: Terraform destroy
+          command: |
+            cd infrastructure/
+            terraform init
+            terraform workspace select ${CIRCLE_BRANCH} || terraform workspace new ${CIRCLE_BRANCH}
+            terraform destroy --auto-approve
 
 # order of how jobs will be executed and dependencies
 workflows:
