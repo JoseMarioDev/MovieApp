@@ -26,7 +26,6 @@ yarn-error.log*
 
 /old_styles
 
-
 ### Terraform ###
 # Local .terraform directories
 infrastructure/.terraform
