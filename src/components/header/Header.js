@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Header.scss';
-import logo from '../../img/logo.png';
+import logo from '../../img/Logo.png';
 import { header_list } from './header_list';
 
 const Header = () => {
