@@ -1,14 +1,13 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Provider } from 'react-redux';
-import './App.css';
+import './App.scss';
+import Header from './components/header/Header';
 import store from './redux/store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="app">
-        <h1>Hello World! setting up Redux!</h1>
-      </div>
+      <Header />
     </Provider>
   );
 };
