@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import './Slideshow.scss';
-import { images } from './slideshow-list.js';
+import { images } from '../../../main-list.js';
 const Slideshow = (props) => {
   const { auto, showArrows } = props;
   const [state, setState] = useState({
