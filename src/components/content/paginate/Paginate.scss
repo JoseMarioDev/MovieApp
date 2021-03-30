@@ -13,11 +13,12 @@
 .disable {
   cursor: none;
   pointer-events: none;
-  background: rgba(255, 255, 255, 0.5);
+  // background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 0, 0, 0.75);
 }
 
 .pageCount {
-  color: #ffffff;
+  color: #4f5a5e;
   margin: 0 5px;
   padding: 10px 5px;
 }
