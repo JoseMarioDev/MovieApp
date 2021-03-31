@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import './Slideshow.scss';
-import { images } from '../../../main-list.js';
+
 const Slideshow = (props) => {
-  const { auto, showArrows } = props;
+  const { images, auto, showArrows } = props;
   const [state, setState] = useState({
     slideShow: images[0],
     slideIndex: 0
@@ -16,6 +16,11 @@ const Slideshow = (props) => {
   let currentSlideIndex = 0;
 
   useEffect(() => {
+    setState({
+      ...state,
+      slideIndex: 0,
+      slideShow: images[0]
+    });
     if (auto) {
       const timeInterval = setInterval(() => {
         autoMoveSlide();
@@ -27,7 +32,7 @@ const Slideshow = (props) => {
         clearInterval(sliderInterval);
       };
     }
-  }, []);
+  }, [images]);
 
   const autoMoveSlide = () => {
     let lastIndex = 0;
@@ -79,16 +84,16 @@ const Slideshow = (props) => {
     );
   };
 
-  const SlideBubbles = (props) => {
+  const Indicators = (props) => {
     const { currentSlide } = props;
-    const bubblesList = images.map((slide, i) => {
+    const listIndicators = images.map((slide, i) => {
       const btnClasses =
         i === currentSlide
           ? 'slider-navButton slider-navButton--active'
           : 'slider-navButton';
       return <button className={btnClasses} key={i} />;
     });
-    return <div className="slider-nav">{bubblesList}</div>;
+    return <div className="slider-nav">{listIndicators}</div>;
   };
 
   return (
@@ -102,11 +107,18 @@ const Slideshow = (props) => {
             ></div>
           )}
         </div>
-        <SlideBubbles currentSlide={slideIndex} />
+        <Indicators currentSlide={slideIndex} />
         {showArrows ? <RenderArrows /> : null}
       </div>
     </>
   );
+};
+
+Slideshow.propTypes = {
+  images: PropTypes.array.isRequired,
+  auto: PropTypes.bool.isRequired,
+  showArrows: PropTypes.bool.isRequired,
+  currentSlide: PropTypes.number
 };
 
 export default Slideshow;
