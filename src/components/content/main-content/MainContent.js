@@ -39,19 +39,33 @@ const MainContent = (props) => {
       const images = [
         {
           id: 1,
-          url: `${IMAGE_URL}${randomMovies[0].backdrop_path}`
+          url: `${IMAGE_URL}${randomMovies[0].backdrop_path}`,
+          title: randomMovies[0].original_title,
+          vote_average: randomMovies[0].vote_average
         },
         {
           id: 2,
-          url: `${IMAGE_URL}${randomMovies[1].backdrop_path}`
+          url: `${IMAGE_URL}${randomMovies[1].backdrop_path}`,
+          title: randomMovies[1].original_title,
+          vote_average: randomMovies[1].vote_average
         },
         {
           id: 3,
-          url: `${IMAGE_URL}${randomMovies[2].backdrop_path}`
+          url: `${IMAGE_URL}${randomMovies[2].backdrop_path}`,
+          title: randomMovies[2].original_title,
+          vote_average: randomMovies[2].vote_average
         },
         {
           id: 4,
-          url: `${IMAGE_URL}${randomMovies[3].backdrop_path}`
+          url: `${IMAGE_URL}${randomMovies[3].backdrop_path}`,
+          title: randomMovies[3].original_title,
+          vote_average: randomMovies[3].vote_average
+        },
+        {
+          id: 5,
+          url: `${IMAGE_URL}${randomMovies[4].backdrop_path}`,
+          title: randomMovies[4].original_title,
+          vote_average: randomMovies[4].vote_average
         }
       ];
       setImages(images);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './Slideshow.scss';
 
 const Slideshow = (props) => {
+  console.log('props list', props);
   const { images, auto, showArrows } = props;
   const [state, setState] = useState({
     slideShow: images[0],
