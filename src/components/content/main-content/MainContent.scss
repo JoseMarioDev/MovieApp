@@ -1,5 +1,6 @@
 .main-content {
   margin-bottom: 50px;
+  // background-color: #4f5a5e;
 }
 
 .grid-movie-title {
@@ -16,6 +17,7 @@
     grid-area: movieType;
     text-align: left;
     padding: 8px 25px;
+    color: #fff;
   }
 
   .paginate {
