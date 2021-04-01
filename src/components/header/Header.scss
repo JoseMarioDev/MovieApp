@@ -45,10 +45,15 @@
     display: inline;
     list-style: none;
     padding-right: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .active-item {
-    color: #3498db;
+    // color: #3498db;
+    color: #d18f09;
   }
 }
 
@@ -111,7 +116,7 @@
   height: 36px;
   border-radius: 5px;
   outline: none;
-  color: #9dbfaf;
+  color: #606a6e;
   line-height: 36px;
 }
 
