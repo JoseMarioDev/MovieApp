@@ -6,7 +6,7 @@ import './App.scss';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import store from './redux/store';
-import MovieDetails from './components/content/movie-details/MovieDetails';
+import Details from './components/content/details/Details';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route exact path="/" component={Main} />
-            <Route exact path="/:id/:name/details" component={MovieDetails} />
+            <Route exact path="/:id/:name/details" component={Details} />
           </Switch>
         </div>
       </Router>

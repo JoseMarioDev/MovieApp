@@ -86,6 +86,7 @@ export const movieDetails = (id) => async (dispatch) => {
 export const clearMovieDetails = () => async (dispatch) => {
   dispatchMethod(CLEAR_MOVIE_DETAILS, [], dispatch);
 };
+
 export const setResponsePageNumber = (page, totalPages) => async (dispatch) => {
   const payload = { page, totalPages };
   dispatchMethod(RESPONSE_PAGE, payload, dispatch);
