@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -12,7 +13,9 @@ const Reviews = (props) => {
   return (
     <>
       <div className="movie-reviews">
-        <div className="div-title">Reviews {reviews.results.length > 0 ? reviews.results.length : ''}</div>
+        <div className="div-title">
+          Reviews {reviews.results.length > 0 ? reviews.results.length : ''}
+        </div>
         {reviews.results.length ? (
           reviews.results.map((data) => (
             <div className="reviews" key={uuidv4()}>

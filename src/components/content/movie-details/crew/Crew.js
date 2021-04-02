@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import './Crew.scss';
-import { IMAGE_URL } from '../../../../services/movies.service';
+import { IMAGE_URL } from '../../../../api/movies.api';
 
 const Crew = (props) => {
   const { movie } = props;
@@ -27,7 +27,14 @@ const Crew = (props) => {
             <tbody key={uuidv4()}>
               <tr>
                 <td>
-                  <img src={data.profile_path ? `${IMAGE_URL}${data.profile_path}` : 'http://placehold.it/54x81'} alt="" />
+                  <img
+                    src={
+                      data.profile_path
+                        ? `${IMAGE_URL}${data.profile_path}`
+                        : 'http://placehold.it/54x81'
+                    }
+                    alt=""
+                  />
                 </td>
                 <td>{data.name}</td>
                 <td>{data.department}</td>

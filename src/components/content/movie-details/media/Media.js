@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './Media.scss';
-import { IMAGE_URL } from '../../../../services/movies.service';
+import { IMAGE_URL } from '../../../../api/movies.api';
 
 const Media = (props) => {
   const { movie } = props;

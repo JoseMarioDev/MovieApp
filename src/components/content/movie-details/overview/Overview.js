@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import './Overview.scss';
-import { IMAGE_URL } from '../../../../services/movies.service';
+import { IMAGE_URL } from '../../../../api/movies.api';
 
 const Overview = (props) => {
   const { movie } = props;
@@ -62,7 +62,9 @@ const Overview = (props) => {
 
     for (let i = 0; i < symbolArray.length; i++) {
       if (number >= symbolArray[i].value) {
-        result = (number / symbolArray[i].value).toFixed(digits).replace(regex, '$1') + symbolArray[i].symbol;
+        result =
+          (number / symbolArray[i].value).toFixed(digits).replace(regex, '$1') +
+          symbolArray[i].symbol;
       }
     }
     return result;
@@ -80,7 +82,14 @@ const Overview = (props) => {
               <tbody key={uuidv4()}>
                 <tr>
                   <td>
-                    <img src={data.profile_path ? `${IMAGE_URL}${data.profile_path}` : 'http://placehold.it/54x81'} alt="" />
+                    <img
+                      src={
+                        data.profile_path
+                          ? `${IMAGE_URL}${data.profile_path}`
+                          : 'http://placehold.it/54x81'
+                      }
+                      alt=""
+                    />
                   </td>
                   <td>{data.name}</td>
                   <td>{data.character}</td>
@@ -95,7 +104,14 @@ const Overview = (props) => {
           <h6>Production Companies</h6>
           {details.production_companies.map((prod) => (
             <div className="product-company" key={uuidv4()}>
-              <img src={prod.logo_path ? `${IMAGE_URL}${prod.logo_path}` : 'http://placehold.it/30x30'} alt="" />
+              <img
+                src={
+                  prod.logo_path
+                    ? `${IMAGE_URL}${prod.logo_path}`
+                    : 'http://placehold.it/30x30'
+                }
+                alt=""
+              />
               <span>{prod.name}</span>
             </div>
           ))}
