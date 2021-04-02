@@ -31,6 +31,9 @@
   height: 130px;
   margin-left: 25px;
   margin-top: -2px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .header-nav {
