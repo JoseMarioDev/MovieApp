@@ -23,7 +23,6 @@ const Details = (props) => {
       movieDetails(id);
     }
     setDetails(movie[0]);
-    // eslint-disable-next-line
   }, [id, movie]);
 
   return (
