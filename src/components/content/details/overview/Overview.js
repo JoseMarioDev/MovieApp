@@ -46,8 +46,6 @@ const Overview = (props) => {
       }
     ];
     setItems(detailItems);
-
-    // eslint-disable-next-line
   }, []);
 
   const numberFormatter = (number, digits) => {
