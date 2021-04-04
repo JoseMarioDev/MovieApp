@@ -11,8 +11,8 @@ const About = () => {
           <p className="catchphrase">Rediscover your favorites</p>
           <br />
           <p className="about-copy">
-            MovieBase allows you to browse movies from top rated to upcoming,
-            from old favorites to the newest releases
+            Browse our collection of movies from the most popular to the highest
+            rated. Preview upcoming movies or search for your favorites.
           </p>
         </div>
 
