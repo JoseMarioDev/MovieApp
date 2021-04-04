@@ -18,6 +18,8 @@
 - Image lazy loading
 - Dockerize app
 - setup monitoring using Sentry
+- testing using react testing library
+- custom domain using route 53
 
 ### Github workflow
 
