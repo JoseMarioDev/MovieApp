@@ -1,4 +1,4 @@
-## Movie App
+## MovieBase
 
 _Rediscover your favorites_
 
