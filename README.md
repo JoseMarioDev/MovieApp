@@ -6,7 +6,6 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 
 ### Features
 
-- Github for code repository using feature branches and three main stages: development, staging, and master
 - CI/CD using CircleCI
 - Integrate Slack with CircleCI for notifications
 - Build AWS resources using Terraform
@@ -16,7 +15,7 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 - CSS Grid to make app mobile responsive
 - Infinite scrolling
 - Image lazy loading
-- Dockerize app
+- Docker for container services
 - setup monitoring using Sentry
 - testing using react testing library
 - custom domain using route 53
