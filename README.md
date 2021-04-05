@@ -29,3 +29,17 @@
 - once feature is working as required, merge dev branch -> staging branch (staging environment)
 - can merge from staging -> master branch (prod environment)
   ![GH flow](src/img/github-flow.png)
+
+### Run App locally
+
+- Clone the repo
+
+- Run `npm install`
+
+- Create an account on [https://www.themoviedb.org/](https://www.themoviedb.org/) and obtain an API key.
+
+- Create a .env file in the root of the project and add
+
+```js
+REACT_APP_API_SECRET=your api key
+```
