@@ -16,7 +16,7 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 - Infinite scrolling
 - Image lazy loading
 - Docker for container services
-- setup monitoring using Sentry
+- Sentry for error monitoring and logging
 - testing using react testing library
 - custom domain using route 53
 
