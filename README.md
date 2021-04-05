@@ -1,10 +1,10 @@
 ## Movie App
 
-### App Architecture
+_Rediscover your favorites_
 
-![app architecture](src/img/app-arch.png)
+Browse our collection of movies from the most popular to the highest rated. Preview upcoming movies or search for your favorites.
 
-### App Features
+### Features
 
 - Github for code repository using feature branches and three main stages: development, staging, and master
 - CI/CD using CircleCI
@@ -21,6 +21,10 @@
 - testing using react testing library
 - custom domain using route 53
 
+### Architecture
+
+![app architecture](src/img/app-arch.png)
+
 ### Github workflow
 
 - developer works locally in feature branch
@@ -30,7 +34,7 @@
 - can merge from staging -> master branch (prod environment)
   ![GH flow](src/img/github-flow.png)
 
-### Run App locally
+### Run locally
 
 - Clone the repo
 
