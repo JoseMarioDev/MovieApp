@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import './MainContent.scss';
 import Slideshow from '../slideshow/Slideshow';
+import About from '../about/About';
 import Paginate from '../paginate/Paginate';
 import Grid from '../grid/Grid.js';
 import { IMAGE_URL } from '../../../api/movies.api';
@@ -89,6 +90,7 @@ const MainContent = (props) => {
   return (
     <div className="main-content">
       <Slideshow images={images} auto={true} showArrows={true} />
+      <About />
       <div className="grid-movie-title">
         <div className="movieType">{headers[movieType]}</div>
         <div className="paginate">
