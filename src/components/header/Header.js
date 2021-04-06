@@ -14,6 +14,8 @@ import {
   clearMovieDetails
 } from '../../redux/actions/movies';
 import { header_list } from './header_list';
+import { pathURL } from '../../redux/actions/routes';
+import { setError } from '../../redux/actions/errors';
 
 const Header = (props) => {
   const {
@@ -24,7 +26,13 @@ const Header = (props) => {
     setResponsePageNumber,
     searchQuery,
     searchResult,
-    clearMovieDetails
+    clearMovieDetails,
+    routesArray,
+    path,
+    url,
+    pathURL,
+    setError,
+    errors
   } = props;
   let [navClass, setNavClass] = useState(false);
   let [menuClass, setMenuClass] = useState(false);
@@ -38,22 +46,48 @@ const Header = (props) => {
   const detailsRoute = useRouteMatch('/:id/:name/details');
 
   useEffect(() => {
-    getMovies(type, page);
-    setResponsePageNumber(page, totalPages);
-    if (detailsRoute || location.pathname === '/') {
-      setHideHeader(true);
+    if (routesArray.length) {
+      if (!path && !url) {
+        pathURL('/', '/');
+        const error = new Error(
+          `Page with pathname ${location.pathname} not found with status code 404.`
+        );
+        setError({
+          message: `Page with pathname ${location.pathname} not found.`,
+          statusCode: 404
+        });
+        throw error;
+      }
     }
+  }, [path, url, routesArray, pathURL]);
 
-    if (location.pathname !== '/' && location.key) {
-      setDisableSearch(true);
+  useEffect(() => {
+    if (errors.message || errors.statusCode) {
+      pathURL('/', '/');
+      const error = new Error(
+        `${errors.message} With status code ${errors.statusCode} `
+      );
+      setError({
+        message: `Page with pathname ${location.pathname} not found.`,
+        statusCode: 404
+      });
+      throw error;
     }
-  }, [type, disableSearch, location]);
+  }, [errors]);
 
-  const navigateToMainPage = () => {
-    setDisableSearch(false);
-    clearMovieDetails();
-    history.push('/');
-  };
+  useEffect(() => {
+    if (path && !errors.message && !errors.statusCode) {
+      getMovies(type, page);
+      setResponsePageNumber(page, totalPages);
+      if (detailsRoute || location.pathname === '/') {
+        setHideHeader(true);
+      }
+
+      if (location.pathname !== '/' && location.key) {
+        setDisableSearch(true);
+      }
+    }
+  }, [type, disableSearch, location, path]);
 
   const setMovieTypeUrl = (type) => {
     setDisableSearch(false);
@@ -72,6 +106,12 @@ const Header = (props) => {
     setSearch(e.target.value);
     searchQuery(e.target.value);
     searchResult(e.target.value);
+  };
+
+  const navigateToMainPage = () => {
+    setDisableSearch(false);
+    clearMovieDetails();
+    history.push('/');
   };
 
   const toggleMenu = () => {
@@ -93,7 +133,7 @@ const Header = (props) => {
           <div className="header-bar"></div>
           <div className="header-navbar">
             <div className="header-image" onClick={() => navigateToMainPage()}>
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="" />
             </div>
             <div
               className={`${
@@ -150,15 +190,25 @@ Header.propTypes = {
   setMovieType: PropTypes.func,
   searchQuery: PropTypes.func,
   searchResult: PropTypes.func,
-  setResponsePageNumber: PropTypes.func,
   clearMovieDetails: PropTypes.func,
+  setResponsePageNumber: PropTypes.func,
   page: PropTypes.number,
-  totalPages: PropTypes.number
+  totalPages: PropTypes.number,
+  path: PropTypes.string,
+  url: PropTypes.string,
+  routesArray: PropTypes.array,
+  pathURL: PropTypes.func,
+  setError: PropTypes.func,
+  errors: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
   page: state.movies.page,
-  totalPages: state.movies.totalPages
+  totalPages: state.movies.totalPages,
+  routesArray: state.routes.routesArray,
+  path: state.routes.path,
+  url: state.routes.url,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, {
@@ -167,5 +217,7 @@ export default connect(mapStateToProps, {
   setResponsePageNumber,
   searchQuery,
   searchResult,
-  clearMovieDetails
+  clearMovieDetails,
+  pathURL,
+  setError
 })(Header);
