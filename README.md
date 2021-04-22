@@ -2,6 +2,9 @@
 
 _Rediscover your favorites_
 
+<img src="./src/img/moviebase-homepage.png" alt="homepage"
+width="900" height="400" />
+
 Browse our collection of movies from the most popular to the highest rated. Preview upcoming movies or search for your favorites.
 
 ### Features
