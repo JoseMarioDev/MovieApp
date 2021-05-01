@@ -25,7 +25,9 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 
 ### Architecture
 
+
 ![app architecture](src/img/mb-arch.png)
+
 
 ### Github workflow
 
@@ -34,7 +36,9 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 - once feature is complete, dev merges into dev branch (dev environment)
 - once feature is working as required, merge dev branch -> staging branch (staging environment)
 - can merge from staging -> master branch (prod environment)
+
   ![GH flow](src/img/mb-gh-flow.png)
+
 
 ### Run locally
 
