@@ -18,8 +18,8 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 - CSS Grid to make app mobile responsive
 - Infinite scrolling
 - Image lazy loading
-- Docker for container services
-- Sentry for error tracking
+<!-- - Docker for container services
+- Sentry for error tracking -->
 - testing using react testing library
 - custom domain using route 53
 
