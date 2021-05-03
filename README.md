@@ -29,6 +29,7 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 ![app architecture](src/img/mb-arch.png)
 
 
+
 ### Github workflow
 
 - developer works locally in feature branch
@@ -38,6 +39,7 @@ Browse our collection of movies from the most popular to the highest rated. Prev
 - can merge from staging -> master branch (prod environment)
 
   ![GH flow](src/img/mb-gh-flow.png)
+
 
 
 ### Run locally
